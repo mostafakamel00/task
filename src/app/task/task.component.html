@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 task pt-4">
+      <div class="parent-task">
+        <mat-toolbar>
+          <span>Filter By :</span>
+        </mat-toolbar>
+        <!--name-->
+        <div class="full-name mt-3">
+          <mat-form-field appearance="outline">
+            <mat-label>
+              Name
+            </mat-label>
+            <input matInput placeholder="your Name" type="text" [(ngModel)]="searchName" />
+          </mat-form-field>
+        </div>
+        <!--Date-->
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" [(ngModel)]="searchDate">
+        </div>
+        <!--Department-->
+        <div class="department ">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Department</mat-label>
+            <mat-select [(ngModel)]="searchDepartment">
+              <mat-option *ngFor="let opion of selectArr" value="{{opion.department}}">
+                {{opion.department}}
+              </mat-option>
+
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+        <!--Salary-->
+        <div class="salary">
+          <mat-form-field class="example-full-width">
+            <mat-label>Salary</mat-label>
+            <input type="text" matInput [(ngModel)]="searchSalary">
+          </mat-form-field>
+
+        </div>
+        <!--Experince-->
+        <div class="experince">
+          <mat-form-field appearance="fill">
+            <mat-label>Select experince</mat-label>
+            <mat-select [(ngModel)]="searchExperince">
+              <mat-option value="{{opion.experince}}" *ngFor="let opion of selectArr">
+                {{opion.experince}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button mat-raised-button color="primary" (click)="filterData()">Filter</button>
+          <button mat-raised-button color="accent" (click)="clearAll()">Clear All</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 pt-4 tab-dv">
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col">Employment Date</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Experince</th>
+            <th scope="col">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userArr ">
+            <td>{{user.name | titlecase}}</td>
+            <td>{{user.date | date:"dd/MM/yyyy" }}</td>
+            <td>{{user.salary}}</td>
+            <td>{{user.experince}}</td>
+            <td>{{user.department | titlecase}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

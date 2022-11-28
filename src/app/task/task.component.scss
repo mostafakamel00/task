@@ -1,0 +1,42 @@
+.task {
+  min-height: 100vh;
+  background-color: #303030c4;
+}
+:host .mat-form-field {
+  width: 100%;
+}
+h2 {
+  margin-bottom: 0;
+  background: #ccc;
+  text-align: center;
+  padding: 4px;
+  color: #a19696;
+  font-weight: 700;
+  span {
+    color: #666;
+  }
+}
+
+
+.parent-task {
+  border-radius: 10px;
+  padding: 20px 14px;
+    background: #fff;
+}
+
+
+//media Query
+
+@media screen and (max-width:768px) {
+  .task {
+    min-height: auto;
+    padding: 3rem ;
+  }
+}
+@media screen and (max-width:575px) {
+  .tab-dv {
+    font-size: 12px;
+    overflow-x: scroll;
+
+  }
+}
